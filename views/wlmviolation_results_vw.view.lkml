@@ -66,6 +66,18 @@ view: wlmviolation_results_vw {
   dimension: tags {
     type: string
     sql: ${TABLE}.tags ;;
+    html:
+    {% if value == 'High' %}
+    <p style="color: white; background-color: red;">{{ value }}</p>
+    {% elsif value == 'Medium' %}
+    <p style="color: black; background-color: orange;">{{ value }}</p>
+    {% elsif value == 'Low' %}
+    <p style="color: black; background-color: lightgreen;">{{ value }}</p>
+    {% else %}
+    <p style="color: black; background-color: grey;">{{ value }}</p>
+    {% endif %}
+    ;;
+    description: "Severity"
   }
   dimension: task_id {
     type: string
