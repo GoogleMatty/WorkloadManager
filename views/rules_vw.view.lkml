@@ -10,6 +10,7 @@ view: rules_vw {
     sql: ${TABLE}.displayName ;;
   }
   dimension: name {
+    primary_key: yes
     type: string
     sql: ${TABLE}.name ;;
   }
@@ -37,6 +38,7 @@ view: rules_vw {
     type: count
     drill_fields: [display_name, name, description, severity, tags]
   }
+
 }
 
 view: rules_vw__tags {

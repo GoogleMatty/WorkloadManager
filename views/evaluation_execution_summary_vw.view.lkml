@@ -57,4 +57,14 @@ view: evaluation_execution_summary_vw {
     type: count
     drill_fields: [start_time, evaluation_name, execution_id, message, rule]
   }
+
+  measure: sum_sccanned_resource_count {
+    type: sum
+    sql: ${scanned_resource_count} ;;
+  }
+
+  measure: sum_result_count {
+    type: sum
+    sql: ${result_count} ;;
+  }
 }
