@@ -34,6 +34,13 @@ view: evaluation_execution_summary_vw {
     type: number
     sql: ${TABLE}.scannedResourceCount ;;
   }
+
+  dimension: duration_minutes {
+    type: number
+    sql: ${TABLE}.duration_minutes ;;
+  }
+
+
   dimension_group: start {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -53,6 +60,12 @@ view: evaluation_execution_summary_vw {
     ;;
     description: "Severity"
   }
+
+  measure: avg_duration {
+    type: average
+    sql: ${duration_minutes} ;;
+    }
+
   measure: count {
     type: count
     drill_fields: [start_time, evaluation_name, execution_id, message, rule]
