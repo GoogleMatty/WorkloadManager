@@ -39,11 +39,24 @@ view: evaluation_executions_vw {
     type: string
     sql: ${TABLE}.state ;;
   }
+
+  dimension: duration_minutes {
+    type: string
+    sql: ${TABLE}.duration_minutes;;
+  }
+
+
+  measure: avg_duration {
+    type: average
+    sql: ${duration_minutes} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [name, evaluation_name]
   }
 }
+
 
 view: evaluation_executions_vw__rule_results {
 
