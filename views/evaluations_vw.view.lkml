@@ -23,6 +23,7 @@ view: evaluations_vw {
     sql: ${TABLE}.destinationDataset ;;
   }
   dimension: evaluation_name {
+    primary_key: yes
     type: string
     sql: ${TABLE}.evaluation_name ;;
   }

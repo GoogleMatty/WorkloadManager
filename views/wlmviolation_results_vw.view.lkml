@@ -114,6 +114,6 @@ view: wlmviolation_results_vw {
 
   measure: count {
     type: count
-    drill_fields: [result_timestamp_time, rule_name, severity, asset_name, evaluation_name, violation_details, violation_message]
+    drill_fields: [result_timestamp_time, rule_name, severity, project, region_location, asset_name, evaluation_name, violation_details, violation_message]
   }
 }
