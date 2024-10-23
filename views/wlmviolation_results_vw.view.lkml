@@ -107,6 +107,11 @@ view: wlmviolation_results_vw {
     sql: ${project} ;;
   }
 
+  measure: num_regions {
+    type: count_distinct
+    sql: ${region_location} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [result_timestamp_time, rule_name, severity, asset_name, evaluation_name, violation_details, violation_message]
