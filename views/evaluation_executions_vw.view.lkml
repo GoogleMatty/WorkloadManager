@@ -40,9 +40,15 @@ view: evaluation_executions_vw {
     sql: ${TABLE}.state ;;
   }
 
-  measure: duration_minutes {
+  dimension: duration_minutes {
+    type: string
+    sql: ${TABLE}.duration_minutes;;
+  }
+
+
+  measure: avg_duration {
     type: average
-    sql: ${TABLE}.duration ;;
+    sql: ${duration_minutes} ;;
   }
 
   measure: count {
