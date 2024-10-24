@@ -13,14 +13,15 @@ view: evaluation_execution_summary_dt {
       FROM `WLM_AnalyticsDatasets.EvaluationExecutionSummaryVW` AS evaluation_execution_summary_vw
       WHERE evaluation_execution_summary_vw.state = "STATE_SUCCESS"
       GROUP BY
-          1,
-          2,
-          3,
-          4,
-          5
+          start_time,
+          end_time,
+          _evaluation_name,
+          execution_id,
+          project,
+          duration_minutes
       ORDER BY
           1 DESC
-      LIMIT 500 ;;
+      LIMIT 10 ;;
   }
 
   measure: count {
