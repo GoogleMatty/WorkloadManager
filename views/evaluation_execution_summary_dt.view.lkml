@@ -7,6 +7,7 @@ view: evaluation_execution_summary_dt {
           evaluation_execution_summary_vw.evaluation_name  AS _evaluation_name,
           evaluation_execution_summary_vw.execution_id  AS execution_id,
           evaluation_execution_summary_vw.project  AS project,
+          TIMESTAMP_DIFF(endTime,startTime,MINUTE) duration_minutes,
           sum(evaluation_execution_summary_vw.scannedResourceCount)  AS scanned_resource_count,
           sum(evaluation_execution_summary_vw.resultCount)  AS result_count
       FROM `WLM_AnalyticsDatasets.EvaluationExecutionSummaryVW` AS evaluation_execution_summary_vw
@@ -35,6 +36,12 @@ view: evaluation_execution_summary_dt {
   dimension: end_time {
     type: string
     sql: ${TABLE}.end_time ;;
+  }
+
+
+  dimension: duration_minutes {
+    type: string
+    sql: ${TABLE}.duration_minutes ;;
   }
 
   dimension: _evaluation_name {
