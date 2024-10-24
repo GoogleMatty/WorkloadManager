@@ -1,6 +1,6 @@
 view: wlmviolation_results_vw {
 
-  label: "WLM Viloation Result"
+  label: "WLM Violation Result"
 
   sql_table_name: `WLM_AnalyticsDatasets.WLMViolationResults_VW` ;;
 

@@ -1,4 +1,8 @@
 view: evaluation_rules_vw {
+
+
+  label: "Evaluation Rules"
+
   sql_table_name: `WLM_AnalyticsDatasets.EvaluationRulesVW` ;;
 
   dimension: evaluation_name {
@@ -15,6 +19,6 @@ view: evaluation_rules_vw {
   }
   measure: count {
     type: count
-    drill_fields: [evaluation_name]
+    drill_fields: [project, rule_names]
   }
 }
